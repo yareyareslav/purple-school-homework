@@ -12,7 +12,7 @@
 
   font-family: var(--font);
   font-size: 24px;
-  background-color: #008BFE;
+  background-color: var(--color-bg);
   color: white;
 
   border: none;
