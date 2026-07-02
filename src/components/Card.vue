@@ -30,10 +30,10 @@ function reject() {
       <div class="btns">
         <button class="btn-turn" @click="turn">Перевернуть</button>
         <div class="btns-status">
-          <button class="btn btn-approve" @click="reject">
+          <button class="btn btn-reject" @click="reject">
             <RejectIcon />
           </button>
-          <button class="btn-reject" @click="approve"><ApproveIcon /></button>
+          <button class="btn-approve" @click="approve"><ApproveIcon /></button>
         </div>
       </div>
     </div>
