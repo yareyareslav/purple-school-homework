@@ -1,12 +1,15 @@
 <script setup>
+import { ref } from "vue";
 import HeartIcon from "../icons/HeartIcon.vue";
 import Score from "./Score.vue";
+
+const score = ref(99);
 </script>
 
 <template>
   <header class="header">
     <h1 class="title">Запомни слово</h1>
-    <Score score="100" />
+    <Score :score="score" />
   </header>
 </template>
 
