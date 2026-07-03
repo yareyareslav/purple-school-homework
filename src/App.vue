@@ -4,31 +4,69 @@ import Button from "./components/Button.vue";
 import Card from "./components/Card.vue";
 import Header from "./components/Header.vue";
 
-function turn(isAnswerShown) {
-  console.log(isAnswerShown);
+
+function turn(id) {
+  cards.value[id-1].state = "opened";
 }
 
-function changeStatus(approved) {
-  console.log(approved);
+function changeStatus(id, status) {
+  cards.value[id-1].status = status;
 }
 
-const card = ref({
-  id: 1,
-  word: "Question",
-  translation: "Answer",
-  state: "closed",
-  status: "success",
-});
+const cards = ref([
+  {
+    id: 1,
+    word: "Question",
+    translation: "Answer",
+    state: "opened",
+    status: "pending",
+  },
+  {
+    id: 2,
+    word: "Question",
+    translation: "Answer",
+    state: "closed",
+    status: "pending",
+  },
+  {
+    id: 3,
+    word: "Question",
+    translation: "Answer",
+    state: "opened",
+    status: "fail",
+  },
+  {
+    id: 4,
+    word: "Question",
+    translation: "Answer",
+    state: "opened",
+    status: "success",
+  }
+]);
 </script>
 
 <template>
   <Header />
-  <Card
-    :id="card.id"
-    :question="card.word"
-    :answer="card.translation"
-    @turn="turn"
-    @change-status="changeStatus"
-  />
+  <div class="cards">
+    <Card
+      v-for="card in cards"
+      :key="card.id"
+      :id="card.id"
+      :question="card.word"
+      :answer="card.translation"
+      :state="card.state"
+      :status="card.status"
+      @turn="turn"
+      @change-status="changeStatus"
+    />
+  </div>
   <Button>Начать игру</Button>
 </template>
+
+<style scoped>
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+</style>
