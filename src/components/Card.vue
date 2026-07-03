@@ -7,6 +7,7 @@ const { id, question, answer } = defineProps({
   question: String,
   answer: String,
 });
+// const state = ref(false);
 const emit = defineEmits(["turn", "change-status"]);
 
 function turn() {
